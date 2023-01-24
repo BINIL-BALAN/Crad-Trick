@@ -75,6 +75,7 @@ class CardTrick {
             <div class="lower"><strong>${this.showingSymbols[13].number}</strong></div></div><div class="back"> </div>
             </div> </div>`
             this.resultDisplayHead.innerHTML = 'Your card is'
+            document.getElementById('chooseRowBtn').innerText="Retry"
             this.count = 0
         }
     }
@@ -149,10 +150,25 @@ let trick
 function start() {
     trick = new CardTrick()
     trick.rotate()
-    trick.displaySymbols() 
+    trick.displaySymbols()
+    setTimeout(() => {
+        const toastLiveExample = document.getElementById('liveToast')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        toast.show() 
+    }, 3000);
+    
 }
+
 function rotateCard(choice) {
     trick.rotate()
     trick.shuffle(choice)
 }
 
+function showBUttons(){
+    document.getElementById('firstRowButton').innerHTML=` <button type="button" class="btn btn-primary h-25" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+    onclick="rotateCard(1)">In this</button>`
+    document.getElementById('secondRowButton').innerHTML=`<button type="button" class="btn btn-primary h-25" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+    onclick="rotateCard(2)">In this</button>`
+    document.getElementById('thirdRowButton').innerHTML=`<button type="button" class="btn btn-primary h-25" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+    onclick="rotateCard(3)">In this </button>`
+}

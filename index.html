@@ -13,8 +13,8 @@
 
 <body>
      <div class="w-100 p-3 d-flex justify-content-between">
-          <h3>Card trick</h3>
-          <button type="button" class="start-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <h3 class="heading">Card Trick</h3>
+          <button type="button" class="btn btn-success start-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                Start
           </button>
      </div>
@@ -77,9 +77,8 @@
                </div>
                <div class="back"></div>
           </div>
-          <div class="d-flex justify-content-center align-items-center">
-               <button type="button" class="btn btn-primary h-25" data-bs-toggle="modal" data-bs-target="#exampleModal2"
-                    onclick="rotateCard(1)">In this</button>
+          <div id="firstRowButton" class="d-flex justify-content-center align-items-center">
+              
           </div>
 
           <!-- Row 2 -->
@@ -139,9 +138,8 @@
                <div class="back"></div>
           </div>
 
-          <div class="d-flex justify-content-center align-items-center">
-               <button type="button" class="btn btn-primary h-25" data-bs-toggle="modal" data-bs-target="#exampleModal2"
-                    onclick="rotateCard(2)">In this</button>
+          <div id="secondRowButton" class="d-flex justify-content-center align-items-center">
+               
           </div>
 
           <!-- Row 3 -->
@@ -200,15 +198,14 @@
                </div>
                <div class="back"></div>
           </div>
-          <div class="d-flex justify-content-center align-items-center">
-               <button type="button" class="btn btn-primary h-25" data-bs-toggle="modal" data-bs-target="#exampleModal2"
-                    onclick="rotateCard(3)">In this </button>
+          <div id="thirdRowButton" class="d-flex justify-content-center align-items-center">
+               
           </div>
 
      </div>
 
      <!--start Message display Modal-->
-     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
           <div class="modal-dialog modal-dialog-centered">
                <div class="modal-content">
                     <div class="modal-header">
@@ -216,7 +213,9 @@
                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                         <strong class="text-success"> Think of a favorite card from the given 3 rows</strong>
+                         <strong class="text-dark"> Think of a favorite card from the given 3 rows; <br><br>
+                          <span class="text-success">After 3 round of selecting rows you can see the card you think </span>
+                         </strong>
                     </div>
                     <div class="modal-footer">
                          <button type="button" onclick="start()" data-bs-dismiss="modal" class="btn btn-primary">Ok</button>
@@ -229,7 +228,7 @@
 
      <div class="rowSelectMsg">
           <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
-               aria-hidden="true">
+               aria-hidden="false">
                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                          <div class="modal-header">
@@ -241,12 +240,26 @@
                              <div class="display"> <strong class="text-success"> Which row is your card in</strong></div>
                          </div>
                          <div class="modal-footer">
-                              <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">close</button>
+                              <button type="button" data-bs-dismiss="modal" id="chooseRowBtn" class="btn btn-secondary">Choose row</button>
                          </div>
                     </div>
                </div>
           </div>
      </div>
+
+     <div  class="toast-container position-absolute p-3" style="top:36%;left:35%;">
+          <div id="liveToast" class="toast w-100" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <strong class="me-auto">Select row</strong>
+              <button type="button" onclick="showBUttons()" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body p-5 bg-light text-dark">
+              <h3><strong>Select the row your card in.</strong></h3>
+              <div class="w-100 d-flex justify-content-end"><button type="button" onclick="showBUttons()" class="btn btn-danger mt-3" data-bs-dismiss="toast" aria-label="Close">Close</button></div>
+            </div>
+          </div>
+        </div>
+
      <script src="./symbols.js"></script>
      <script src="mainScript.js"></script>
 </body>
