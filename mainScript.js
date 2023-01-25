@@ -76,6 +76,7 @@ class CardTrick {
             </div> </div>`
             this.resultDisplayHead.innerHTML = 'Your card is'
             document.getElementById('chooseRowBtn').innerText="Retry"
+            document.querySelector('.closeBtn-area').innerHTML=`<button type="button" data-bs-dismiss="modal" id="chooseRowBtn" class="btn btn-secondary" onclick="window.location.reload()">Retry</button>`
             this.count = 0
         }
     }
