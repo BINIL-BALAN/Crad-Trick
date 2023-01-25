@@ -14,9 +14,12 @@
 <body>
      <div class="w-100 p-3 d-flex justify-content-between">
           <h3 class="heading">Card Trick</h3>
-          <button type="button" class="btn btn-success start-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-               Start
-          </button>
+          <div class="btn-container">
+               <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Start
+               </button>
+               <button type="button" class="btn btn-secondary " onclick="window.location.reload()">Retry</button>
+          </div>
      </div>
 
      <div class="card-container">

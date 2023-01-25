@@ -154,3 +154,6 @@ img{
     border: 1px solid rgb(214, 214, 214);
     position: relative;
 }
+.btn-container{
+    margin-right: 9vw;
+}
